@@ -1,0 +1,9 @@
+  325  cd rails_test/di_todo_apps/
+  294  git init
+  297  git add .
+  298  git commit -m "first commit"
+  299  git remote add origin git@github.com:tvcou/di_todo_apps.git
+  300  git push -u origin master
+  329  vi Gemfile
+  330  bundle install
+  331  gp "therubyracer"
