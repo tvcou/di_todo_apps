@@ -86,3 +86,7 @@ sqlite> .exit
   414  vi app/views/projects/index.html.erb
   415  vi app/controllers/projects_controller.rb
   419  vi app/views/projects/show.html.erb
+
+  430  vi app/views/projects/index.html.erb
+  431  vi app/controllers/projects_controller.rb
+  432  vi app/views/projects/new.html.erb
