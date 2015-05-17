@@ -59,3 +59,13 @@ sqlite> select * from projects;
 2|p2|2015-05-17 03:26:11.390062|2015-05-17 03:26:11.390062
 sqlite> .exit
 [tatsu@vagrant-centos65 di_todo_apps]$
+
+# controller
+  348  rails g controller Projects
+  349  gp "rails g controller Projects"
+  350  rake routes
+  351  vi config/routes.rb
+  354  gp "vi config/routes.rb"
+  355  vi app/controllers/projects_controller.rb
+  356  vi app/views/projects/index.html.erb
+  357  gp "vi projects_controller.rb index.html.erb"
