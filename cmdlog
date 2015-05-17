@@ -69,3 +69,20 @@ sqlite> .exit
   355  vi app/controllers/projects_controller.rb
   356  vi app/views/projects/index.html.erb
   357  gp "vi projects_controller.rb index.html.erb"
+
+
+  365  vi config/routes.rb
+  366  gp "vi config/routes.rb root"
+  367  vi app/views/layouts/application.html.erb
+  373  wget http://livedoor.blogimg.jp/itlifehack/imgs/3/5/3506b31c.jpg
+  374  mv 3506b31c.jpg app/assets/images/logo.png
+
+  394  vi app/views/layouts/application.html.erb
+  395  vi app/assets/stylesheets/application.css
+  396  gp "mod background color"
+  405  vi app/views/layouts/application.html.erb
+  408  gp "make footer home link"
+
+  414  vi app/views/projects/index.html.erb
+  415  vi app/controllers/projects_controller.rb
+  419  vi app/views/projects/show.html.erb
