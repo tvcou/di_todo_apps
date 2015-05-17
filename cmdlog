@@ -90,3 +90,14 @@ sqlite> .exit
   430  vi app/views/projects/index.html.erb
   431  vi app/controllers/projects_controller.rb
   432  vi app/views/projects/new.html.erb
+  460  gp "make new"
+
+  461  vi app/models/project.rb
+  462  gp "validates :title"
+
+  463  vi app/controllers/projects_controller.rb
+  464  gp "if err in create , return new"
+
+  465  vi app/controllers/projects_controller.rb
+  466  vi app/views/projects/new.html.erb
+  472  vi app/models/project.rb
