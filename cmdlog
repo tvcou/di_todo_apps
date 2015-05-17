@@ -7,3 +7,55 @@
   329  vi Gemfile
   330  bundle install
   331  gp "therubyracer"
+
+# スキーマ確認
+[tatsu@vagrant-centos65 di_todo_apps]$ rails db
+SQLite version 3.6.20
+Enter ".help" for instructions
+Enter SQL statements terminated with a ";"
+sqlite> .schema
+CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+CREATE TABLE "schema_migrations" ("version" varchar NOT NULL);
+CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version");
+sqlite> .exit
+[tatsu@vagrant-centos65 di_todo_apps]$
+
+# データ作成 newは保存しない　createは保存する
+[tatsu@vagrant-centos65 di_todo_apps]$ rails console
+Loading development environment (Rails 4.2.1)
+irb(main):001:0>
+irb(main):002:0* p = Project.new(title: "p1")
+=> #<Project id: nil, title: "p1", created_at: nil, updated_at: nil>
+irb(main):003:0> p.save
+   (0.2ms)  begin transaction
+  SQL (0.3ms)  INSERT INTO "projects" ("title", "created_at", "updated_at") VALUES (?, ?, ?)  [["title", "p1"], ["created_at", "2015-05-17 03:25:58.987224"], ["updated_at", "2015-05-17 03:25:58.987224"]]
+   (11.5ms)  commit transaction
+=> true
+irb(main):004:0> p
+=> #<Project id: 1, title: "p1", created_at: "2015-05-17 03:25:58", updated_at: "2015-05-17 03:25:58">
+irb(main):005:0> Project.create(title: "p2")
+   (0.1ms)  begin transaction
+  SQL (1.8ms)  INSERT INTO "projects" ("title", "created_at", "updated_at") VALUES (?, ?, ?)  [["title", "p2"], ["created_at", "2015-05-17 03:26:11.390062"], ["updated_at", "2015-05-17 03:26:11.390062"]]
+   (14.7ms)  commit transaction
+=> #<Project id: 2, title: "p2", created_at: "2015-05-17 03:26:11", updated_at: "2015-05-17 03:26:11">
+irb(main):006:0> Project.all
+  Project Load (0.3ms)  SELECT "projects".* FROM "projects"
+=> #<ActiveRecord::Relation [#<Project id: 1, title: "p1", created_at: "2015-05-17 03:25:58", updated_at: "2015-05-17 03:25:58">, #<Project id: 2, title: "p2", created_at: "2015-05-17 03:26:11", updated_at: "2015-05-17 03:26:11">]>
+irb(main):007:0> quit
+[tatsu@vagrant-centos65 di_todo_apps]$
+
+
+# DB確認
+[tatsu@vagrant-centos65 di_todo_apps]$ rails db
+SQLite version 3.6.20
+Enter ".help" for instructions
+Enter SQL statements terminated with a ";"
+sqlite> select * from projects
+   ...> ;
+1|p1|2015-05-17 03:25:58.987224|2015-05-17 03:25:58.987224
+2|p2|2015-05-17 03:26:11.390062|2015-05-17 03:26:11.390062
+sqlite> select * from projects;
+1|p1|2015-05-17 03:25:58.987224|2015-05-17 03:25:58.987224
+2|p2|2015-05-17 03:26:11.390062|2015-05-17 03:26:11.390062
+sqlite> .exit
+[tatsu@vagrant-centos65 di_todo_apps]$
