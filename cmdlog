@@ -119,4 +119,6 @@ sqlite> .exit
 
   492  vi app/views/projects/index.html.erb
   493  vi app/controllers/projects_controller.rb
-  494  history | tail -50
+  494  gp "add delete"
+
+
