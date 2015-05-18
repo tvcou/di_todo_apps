@@ -122,3 +122,9 @@ sqlite> .exit
   494  gp "add delete"
 
 
+  234  vi app/controllers/projects_controller.rb
+  235  gp "add before action"
+
+  239  vi app/views/projects/index.html.erb
+  240  gp "mod destroy""
+
