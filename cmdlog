@@ -128,3 +128,21 @@ sqlite> .exit
   239  vi app/views/projects/index.html.erb
   240  gp "mod destroy""
 
+ 
+  543  rails g model Task title done:boolean project:references
+  544  gp "rails g model Task title done:boolean project:references"
+
+  545  vi app/models/task.rb
+  546  vi db/migrate/20150522011528_create_tasks.rb
+  547  rake db:migrate
+  548  gp "vi db/migrate/20150522011528_create_tasks.rb, rake db:migrate"
+
+  549  rails g controller Tasks
+  550  gp "rails g controller Tasks"
+
+  552  vi app/models/project.rb
+  553  gp "vi app/models/project.rb"
+
+  554  vi config/routes.rb
+  555  gp "vi config/routes.rb"
+  556  rake routes
